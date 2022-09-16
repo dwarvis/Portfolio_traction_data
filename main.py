@@ -71,7 +71,6 @@ def update_values(creds, range_name, value_input_option,
         """
     # pylint: disable=maybe-no-member
     try:
-
         service = build('sheets', 'v4', credentials=creds)
         values = [
             [
@@ -92,27 +91,38 @@ def update_values(creds, range_name, value_input_option,
         return error
 
 
+# TODO: Change param + output to array
 def get_twitter_followers(users):
+    users_str = ""
+    users_ar = []
     try:
-        url = create_url(users)
+        for u in users:
+            users_str = users_str + u + ","
+        url = create_url(users_str)
         json_response = connect_to_endpoint(url)
         print(json.dumps(json_response, indent=4, sort_keys=True))
     except:
         return 'n/a'
 
 
-def get_token_ticker(tid):
-    try:
-        return cg.get_coin_by_id(tid)['tickers'][0]['base']
-    except:
-        return 'n/a'
+def get_token_ticker(tids):
+    tids_ar = []
+    for t in tids:
+        try:
+            tids_ar.append(cg.get_coin_by_id(t)['tickers'][0]['base'])
+        except:
+            tids_ar.append('n/a')
+    return tids_ar
 
 
-def get_token_address(tid):
-    try:
-        return cg.get_coin_by_id(tid)['contract_address']
-    except:
-        return 'n/a'
+def get_token_address(tad):
+    tad_ar = []
+    for t in tad:
+        try:
+            tad_ar.apppend(cg.get_coin_by_id(t)['contract_address'])
+        except:
+            tad_ar.append('n/a')
+    return tad_ar
 
 
 def main():
