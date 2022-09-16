@@ -13,7 +13,7 @@ import os
 import json
 
 # Twitter Bearer Token for @intern_davisc
-bearer_token = "AAAAAAAAAAAAAAAAAAAAANAhhAEAAAAA0azzTujSXV1w58A0x26V1cfvzh8%3DPhdd95xnQvrn6d8vPixNGno0fEwN9Y7vKVpjW37sThipY2reqt"
+bearer_token = "SAMPLE BEARER TOKEN"
 
 # If modifying these scopes, delete the file token.json.
 SCOPES = ['https://www.googleapis.com/auth/spreadsheets']
